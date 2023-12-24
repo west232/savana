@@ -1,4 +1,4 @@
-![modules](module.png)
+![modules](images/module.png)
 * using reusable modules to create the networking resource which give access for the funtion to the internet
 
 test directory(savana_test):  
@@ -14,6 +14,6 @@ test directory(savana_test):
 
 ################################################## 
 
-![test lambda function](cloudwatchlog.png)
+![test lambda function](images/cloudwatchlog.png)
 
-![Alt text](lambda.png)
+![Alt text](images/lambda.png)
