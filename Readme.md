@@ -1,4 +1,4 @@
-![module](modules.png)
+![modules](module.png)
 * using reusable modules to create the networking resource which give access for the funtion to the internet
 
 test directory(savana_test).  
