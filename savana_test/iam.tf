@@ -16,18 +16,9 @@ resource "aws_iam_role" "lambda_role" {
 }
 EOF
 }
-resource "aws_iam_policy_attachment" "efs-attach" {
-  name       = "lambda_efs_policy"
-  roles      = [aws_iam_role.lambda_role.name]
-  policy_arn = "arn:aws:iam::aws:policy/AmazonElasticFileSystemClientFullAccess"
-}
-resource "aws_iam_policy_attachment" "execute-attach" {
-  name       = "lambda_execute_policy"
-  roles      = [aws_iam_role.lambda_role.name]
-  policy_arn = "arn:aws:iam::aws:policy/AWSLambdaExecute"
-}
-resource "aws_iam_policy_attachment" "vpc-attach" {
-  name       = "lambda_vpc_access_policy"
-  roles      = [aws_iam_role.lambda_role.name]
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+
+resource "aws_iam_role_policy_attachment" "role_role_attachment" {
+  role = aws_iam_role.lambda_role.name
+  count      = "${length(var.policy_arns)}"
+  policy_arn = "${var.policy_arns[count.index]}"
 }
