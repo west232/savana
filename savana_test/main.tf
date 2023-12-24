@@ -44,10 +44,10 @@ resource "aws_lambda_function" "lambda_function" {
     }
   }
  
-    depends_on = [
-      aws_efs_mount_target.efsm_pub,
-      aws_efs_mount_target.efsm_priv
-    ]
+  depends_on = [
+    aws_efs_mount_target.efsm_pub,
+    aws_efs_mount_target.efsm_priv
+  ]
 }
 resource "aws_lambda_permission" "allow_invocation" {
   statement_id  = "AllowExecutionFromAPIGateway"
@@ -56,7 +56,7 @@ resource "aws_lambda_permission" "allow_invocation" {
 
   principal = "apigateway.amazonaws.com"
 }
-
+# EFS for all region
 resource "aws_efs_file_system" "efs_for_lambda" {
   availability_zone_name = null
   performance_mode = "generalPurpose"
