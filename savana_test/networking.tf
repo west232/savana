@@ -23,16 +23,16 @@ module "igw" {
 }
 
 ##########################################  nat gateway
- module "ngw" {
+module "ngw" {
   source        = "../ngw"
   m_nat_gateway = local.nat-gateway
 
-} 
+}
 ################################################ elastic ip
- module "eip" {
+module "eip" {
   source = "../eip"
   m_eip  = local.eip
-} 
+}
 
 ############################################################ route tables
 resource "aws_route_table" "pub_route" {
@@ -50,7 +50,7 @@ resource "aws_route_table" "priv_route" {
   vpc_id = module.vpcs.vpc_id[0]
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = module.ngw.ngw_id[0] 
+    gateway_id = module.ngw.ngw_id[0]
 
   }
   tags = {

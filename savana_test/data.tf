@@ -1,6 +1,6 @@
 data "aws_vpc" "pub_savana" {
   tags = {
-    Name = "savana_vpc" 
+    Name = "savana_vpc"
   }
   depends_on = [module.vpcs]
 }

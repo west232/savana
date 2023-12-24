@@ -92,7 +92,7 @@ locals {
         ENV  = "dev"
       }
     }
-  } 
+  }
   ########################################### internet gateway
   internet_gw = {
     igw_prov = {
@@ -103,15 +103,15 @@ locals {
       }
     }
   }
-  
+
   #################################################### nat gatway
-    nat-gateway = {
+  nat-gateway = {
     ngw-dev01 = {
       subnet_id     = data.aws_subnet.pub_savana.id
       allocation_id = module.eip.eip_id[0]
       tags = {
-        Name    = "ngw_savana"
-        ENV= "dev"
+        Name = "ngw_savana"
+        ENV  = "dev"
       }
     }
   }
@@ -124,5 +124,5 @@ locals {
         env  = "dev"
       }
     }
-  } 
+  }
 }

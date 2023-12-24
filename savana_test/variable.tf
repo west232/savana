@@ -1,5 +1,5 @@
 variable "policy_arns" {
-  type    = list(string)
+  type = list(string)
   default = [
     "arn:aws:iam::aws:policy/AmazonElasticFileSystemClientFullAccess",
     "arn:aws:iam::aws:policy/AWSLambdaExecute",
