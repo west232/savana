@@ -49,7 +49,7 @@ def lambda_handler(event, context):
         "https://www.udemy.com" ,
         "https://www.amazon.com"
     ]
-    print("hello")
+    
     # Record the start time
     start_time = time.time()
     print("the start time is:", start_time)
