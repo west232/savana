@@ -2,7 +2,7 @@ import os
 import time
 import requests
 
-def save_website_content(event, context):
+def save_web_content(event, context):
     print("1") 
     response = requests.get(event, timeout=10)
     print("2") 
@@ -37,7 +37,7 @@ def measure_execution_time(start_time):
     print(f"/tmp/Execution time: {execution_time:.2f} seconds")
           
 def lambda_handler(event, context):
-    websites = [
+    web_url = [
         "https://www.youtube.com/",
         "https://www.wikipedia.org",
         "https://nexus.io/",
@@ -52,23 +52,25 @@ def lambda_handler(event, context):
     
     # Record the start time
     start_time = time.time()
-    print("the start time is:", start_time)
+    print("The start time is:", start_time)
     #  Save content of 10 random websites to 10 files
-    for i, website in enumerate(websites, 1):
-        #print(website) 
-        save_website_content(website, f"/tmp/website_{i}.html")
+    for i, website in enumerate(web_url, 1):
+        
+        save_web_content(website, f"/tmp/index_{i}.html")
           
     # Count matching lines with the string "href=" in each file
-    href_counts = [count_href_lines(f"/tmp/website_{i}.html") for i in range(1, 11)]
-    print("number of href is:", href_counts)
+    href_counts = [count_href_lines(f"/tmp/index_{i}.html") for i in range(1, 11)]
+    print("Number of href are:", href_counts)
      
     # Save results to new files with logical naming
-    save_results(href_counts, "results")
-
+    save_results(href_counts, "counts")
+    print("=================================================================")
     # Delete the newly created 10 files with results
-    delete_files(*[f"/tmp/website_{i}.html" for i in range(1, 11)])
+    delete_files(*[f"/tmp/counts_{i}.txt" for i in range(1, 11)])
+    print("Files that contains 'href=' are  successfully deleted")
 
     # Measure execution time
+    print("=================================================================")
     measure_execution_time(start_time)
 
     return {
