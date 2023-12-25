@@ -9,7 +9,7 @@ test directory(savana_test):
 
 3. created Lambda function attached with role, EFS configuration and vpc configuration
     * used the "data archive_file" to zip the lambda_function.py file
-    * zip file "layer.zip" contains the necessary dependencies to run the function
+    * layer.zip:  contains the necessary dependencies/external Python packages to run the function  
 
 
 ################################################## 
