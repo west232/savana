@@ -34,7 +34,7 @@ def delete_files(*filenames):
 def measure_execution_time(start_time):
     end_time = time.time()
     execution_time = end_time - start_time
-    print(f"/tmp/Execution time: {execution_time:.2f} seconds")
+    print(f"Execution time is : {execution_time:.2f} seconds")
           
 def lambda_handler(event, context):
     web_url = [
@@ -77,4 +77,4 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body':""
     }
-#lambda_handler(False, False)
+lambda_handler(False, False)
