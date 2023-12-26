@@ -77,4 +77,4 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body':""
     }
-lambda_handler(False, False)
+#lambda_handler(False, False)
