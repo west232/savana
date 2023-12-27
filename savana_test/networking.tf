@@ -1,36 +1,36 @@
 ##################################### vpc
 module "vpcs" {
-  source = "../vpcs"
+  source = "../modules/vpcs"
   m_vpc  = local.vpcs
 
 }
 #################################### subnets
 module "subnets" {
-  source   = "../subnet"
+  source   = "../modules/subnet"
   m_subnet = local.subnets
 }
 
 ####################################### security group
 module "securitygroup" {
-  source           = "../securitygroup"
+  source           = "../modules/securitygroup"
   m_security_group = local.security_groups
 }
 ############################################ internet gateway
 module "igw" {
-  source        = "../igw"
+  source        = "../modules/igw"
   m_internet_gw = local.internet_gw
 
 }
 
 ##########################################  nat gateway
 module "ngw" {
-  source        = "../ngw"
+  source        = "../modules/ngw"
   m_nat_gateway = local.nat-gateway
 
 }
 ################################################ elastic ip
 module "eip" {
-  source = "../eip"
+  source = "../modules/eip"
   m_eip  = local.eip
 }
 
